@@ -1,0 +1,33 @@
+@import '../../scss/init';
+
+.hero {
+  display: flex;
+  height: 35vh;
+  width: 100vw;
+  align-items: center;
+  @include spacing(2rem, 2rem);
+
+  &__title {
+    position: relative;
+    min-width: 40%;
+    padding: 0.3rem 3rem 0.3rem 1rem;
+    margin-top: 4rem;
+    color: $color-white;
+    font-size: 1.3rem;
+    font-weight: $font-weight-light;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 4rem /0 0 100% 0;
+
+    &::after {
+      content: '';
+      width: 70%;
+      height: 25%;
+      background: rgba(255, 0, 0, 0.6);
+      position: absolute;
+      bottom: -25%;
+      left: 0;
+      border-radius: 0 0 2rem /0 0 100% 0;
+    }
+  }
+}

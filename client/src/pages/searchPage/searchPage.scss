@@ -1,0 +1,13 @@
+@import '../../scss/init';
+
+.search-page {
+  position: relative;
+  @extend %withSidebar;
+  @include spacing(2rem, 2rem);
+
+  & .content__title-city {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+}
+

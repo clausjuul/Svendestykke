@@ -1,0 +1,52 @@
+@import './vendor/include-media';
+
+$rem-size: calc(14px + 0.7vmin);
+$line-height: 1.35;
+$background: #ebebeb;
+
+// COLORS //
+$color-red: #ff0000;
+$color-grey: #d1d1d1;
+$color-white: #fff;
+$color-black: #000;
+
+// #373535
+$font-color-darker: rgba(3, 0, 0, 0.78);
+// #7d7c7c
+$font-color-dark: rgba(0, 0, 0, 0.5);
+// #b4b4b4
+$font-color-dark-light: rgba(0, 0, 0, 0.38);
+
+$font-color-lighter: rgba(255, 253, 253, 0.78);
+// #7d7c7c
+$font-color-light: rgba(255, 255, 255, 0.5);
+// #b4b4b4
+$font-color-light-dark: rgba(255, 255, 255, 0.38);
+  
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+$smallSpacing: 1rem;
+$spacing: 10vw;
+$largeSpacing: 15vw;
+
+$nav-height: 5rem;
+$nav-background: $color-black;
+$nav-font-size: 0.8rem;
+
+$font: 'Open Sans', sans-serif;
+$font-heading: 'Open Sans', sans-serif;
+
+
+
+$breakpoints: (
+'phone': 480px,
+'tablet': 768px,
+'desktop': 1124px,
+);
+
+ /* Calculation */
+// --respaonsive: calc((var(--min-font) * 1px) + (var(--max-font) - var(--min-font)) * ((100vw - 100px) / (1200 - 100))) 
+/* Ranges from 421px to 1199px */
+

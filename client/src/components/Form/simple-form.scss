@@ -1,0 +1,211 @@
+@import '../../scss/init';
+
+// $form-border-radius: 0.3rem;
+$form-border-radius: 10px;
+$border-color: #6675df;
+$border-color-error: red;
+$border-color-valid: green;
+
+// $input-background-color: transparent;
+$input-background-color: rgba(0, 0, 0, .05);
+// $input-background-color: rgba(255, 255, 255, 0.9);
+$input-autofill-background-color: rgba(255, 255, 255, 0.8);
+$input-border: 1px solid rgba(0,0,0,.2);
+$input-font-size: 0.8rem;
+$input-font-color: rgba(0, 0, 0, 0.8);
+
+$legend-text-align: center;
+$legend-display: inline-block;
+
+
+.simple-form {
+    padding: 1rem 2rem;
+    // background: rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 30rem;
+
+    fieldset {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    legend {
+        display: $legend-display;
+        text-align: $legend-text-align;
+        padding-bottom: 1rem;
+        font-size: 1.2rem;
+        // font-family: $font-heading;
+    }
+
+    .form__field {
+        letter-spacing: 1px;
+        position: relative;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        &__input {
+            width: 100%;
+            // font-size: $input-font-size;
+            // font-family: $font;
+            font-weight: 200;
+            padding: 0.4rem 1.7rem 0.4rem 1rem;
+            border-radius: $form-border-radius;
+            border: $input-border;
+            outline: none;
+            background: $input-background-color;
+            color: $input-font-color;
+            
+            &::placeholder {
+                opacity: 0.6;
+                font-size: 0.8rem;
+            }
+            &:focus {
+                border-color: #6675df;
+                // box-shadow: 0 0 5px #6675df;
+            }
+        }
+        
+        &.has-error {
+            color: red;
+            transition: all 0.3s;
+        }
+
+        &.is-valid {
+            color: green;
+            transition: all 0.3s;
+        }
+    }
+
+    .has-error-feedback {
+        font-size: 0.7rem;
+        // color: rgb(252, 104, 104);
+        position: absolute;
+        top: 100%;
+        left: 0.5rem;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-right: 0.6rem;
+        
+        svg {
+            // width: unset;
+            height: 40%;
+            opacity: 0.8;
+        }
+    }
+
+    &__submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        &__btn {
+            border: none;
+            cursor: pointer;
+            border-radius: $form-border-radius;
+            color: white;
+            padding: 0.5em 1.5em;
+            font-size: 1em;
+            font-family: $font;
+            font-weight: 300;
+            letter-spacing: 2px;
+            transition: 350ms;
+            text-transform: uppercase;
+            
+            &-primary {
+                // background: $dark-blue;
+
+                &:focus, &:hover {
+                    background: rgb(53, 89, 119);
+                }
+            }
+            &-secoundary {
+                background: grey;
+                margin-right: 0.5rem;
+
+                &:focus, &:hover {
+                    background: lightgrey;
+                }
+            }
+        }
+    }
+}
+
+.animated {
+    animation-duration: 1000ms;
+    animation-fill-mode: both;
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    13% {
+        transform: translateX(-6px) rotateY(-9deg);
+    }
+
+    37% {
+        transform: translateX(5px) rotateY(7deg);
+    }
+
+    63% {
+        transform: translateX(-3px) rotateY(-5deg);
+    }
+
+    87% {
+        transform: translateX(2px) rotateY(3deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.headShake {
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+    animation-duration: 400ms;
+    animation-fill-mode: both;
+}
+
+// @-webkit-keyframes autofill {
+//     to {
+//         // color: inherit;
+//         // background: inherit;
+//         color: blue;
+//         background: transparent;
+//         // color: blue;
+//         // background: red !important;
+//     }
+// }
+@keyframes autofill {
+    to {
+        color: inherit;
+        // background: inherit;
+        // color: blue;
+        background: $input-autofill-background-color;
+    }
+}
+
+input:-webkit-autofill {
+    animation-name: 'autofill';
+    // animation-name: 'auto';
+    animation-fill-mode: both;
+    -webkit-animation-name: 'autofill';
+    -webkit-animation-fill-mode: both;
+}

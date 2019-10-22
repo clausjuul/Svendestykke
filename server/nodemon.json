@@ -1,0 +1,7 @@
+{
+    "env": {
+        "PORT": 8000,
+        "MONGO_STRING": "***** skjult :) *****",
+        "SECRET_KEY": "overlooksupersecretkey"
+    }
+}

@@ -1,0 +1,225 @@
+@import '../../scss/init';
+
+$form-border-radius: 3px;
+$border-color: #6675df;
+$border-color-error: red;
+
+$input-background-color: rgba(255, 255, 255, 0.9);
+$input-autofill-background-color: rgba(255, 255, 255, 0.8);
+$input-border: 1px solid rgba(0,0,0,.2);
+$input-font-size: 0.8rem;
+
+$legend-text-align: center;
+
+
+.form {
+    padding: 1rem 2rem;
+    justify-self: center;
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 30rem;
+
+    fieldset {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        display: flex;
+    }
+
+    legend {
+        display: inline-block;
+        text-align: $legend-text-align;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+        display: none;
+    }
+
+    label {
+        font-size: 1rem;
+        padding-left: 0.5rem;
+        margin-bottom:3px;
+        letter-spacing: 1px;
+        color: $font-color-darker;
+    }
+    .form__field {
+        position: relative;
+        margin-bottom: 1.5rem;
+        display: flex;
+
+        &__input {
+            width: 100%;
+            font-size: $input-font-size;
+            font-family: $font;
+            font-weight: $font-weight-normal;
+            padding: 0.3rem 1.7rem 0.3rem 0.5rem;
+            border-radius: $form-border-radius;
+            border: $input-border;
+            outline: none;
+            background: $input-background-color;
+            color: rgba(14, 14, 14, 0.85);
+            
+            &::placeholder {
+                opacity: 0.6;
+                font-size: 0.8rem;
+            }
+        }
+
+        .focus-effect {
+            position: absolute;
+            display: block;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            top: -1px;
+            left: -1px;
+            pointer-events: none;
+            border: 1px solid $border-color;
+            background: transparent;
+            border-radius: $form-border-radius;
+            opacity: 0;
+            transition: all 0.3s;
+            transform: scaleX(1.05) scaleY(1.15);
+        }
+
+        &__input:focus + .focus-effect {
+            pointer-events: none;
+            opacity: 1;
+            transition: all 0.3s;
+            transform: scaleX(1) scaleY(1);
+        }
+        
+        .focused {
+            pointer-events: none;
+            opacity: 1;
+            border: 1px solid $border-color;
+            transition: all 0.3s;
+            transform: scaleX(1) scaleY(1);
+        }
+        .focus-error {
+            pointer-events: none;
+            opacity: 1;
+            border: 1px solid red;
+            transition: all 0.3s;
+            transform: scaleX(1) scaleY(1);
+        }
+    }
+
+    .has-error-feedback {
+        font-size: 0.7rem;
+        position: absolute;
+        top: 100%;
+        left: 0.5rem;
+        color: $font-color-darker;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-right: 0.6rem;
+        
+        svg {
+            height: 40%;
+            opacity: 0.8;
+        }
+    }
+    &__submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__btn {
+            border: none;
+            cursor: pointer;
+            border-radius: $form-border-radius;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            font-weight: $font-weight-bold;
+            letter-spacing: 2px;
+            transition: 400ms;
+            box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+            
+            &-primary {
+                background: $color-red;
+
+                &:focus, &:hover {
+                    background: rgb(185, 0, 0);
+                    transition: 200ms;
+                }
+            }
+            &-secoundary {
+                background: grey;
+                margin-right: 0.5rem;
+
+                &:focus, &:hover {
+                    background: lightgrey;
+                }
+            }
+        }
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    13% {
+        transform: translateX(-6px) rotateY(-9deg);
+    }
+
+    37% {
+        transform: translateX(5px) rotateY(7deg);
+    }
+
+    63% {
+        transform: translateX(-3px) rotateY(-5deg);
+    }
+
+    87% {
+        transform: translateX(2px) rotateY(3deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.headShake {
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+    animation-duration: 400ms;
+    animation-fill-mode: both;
+}
+
+// @-webkit-keyframes autofill {
+//     to {
+//         // color: inherit;
+//         // background: inherit;
+//         color: blue;
+//         background: transparent;
+//         // color: blue;
+//         // background: red !important;
+//     }
+// }
+@keyframes autofill {
+    to {
+        color: inherit;
+        // background: inherit;
+        // color: blue;
+        background: $input-autofill-background-color;
+    }
+}
+
+input:-webkit-autofill {
+    animation-name: 'autofill';
+    // animation-name: 'auto';
+    animation-fill-mode: both;
+    -webkit-animation-name: 'autofill';
+    -webkit-animation-fill-mode: both;
+}

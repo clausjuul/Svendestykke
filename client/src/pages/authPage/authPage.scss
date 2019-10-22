@@ -1,0 +1,20 @@
+@import '../../scss/init';
+
+.auth-page {
+  @extend %withSidebar;
+  position: relative;
+  @include spacing(2rem, 2rem);
+
+  // & .content__title {
+  //   font-size: 1rem;
+  //   margin-top: 0;
+  // }
+
+  // &__title {
+  //   grid-column: 1 / -1;
+  //   grid-row: 1 / 2;
+  //   margin: 0;
+  //   color: $font-color-darker;
+  // }
+}
+

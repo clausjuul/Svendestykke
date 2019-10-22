@@ -1,0 +1,73 @@
+@import '../../scss/init';
+
+.users-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  
+  a {
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.users-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.create-button {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+}
+.color-btn {
+  background: rgb(233, 233, 233);
+}
+
+.create__user,
+.edit__user {
+  display: flex;
+  flex-direction: column;
+  background: rgb(233, 233, 233);
+  border-radius: 0.3rem;
+  width: 100%;
+}
+
+.user {
+  align-self: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.3fr 0.3fr;
+  grid-column-gap: 0.3rem;
+  font-weight: 400;
+  @include spacing(0.5rem, 0.5rem);
+
+  &:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  &__headings {
+    background: rgba(21, 22, 32, 0.795);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  &-row-icon {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    a {
+      color: inherit;
+    }
+  }
+}

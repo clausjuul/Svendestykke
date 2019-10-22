@@ -1,0 +1,15 @@
+@import '../../scss/init';
+
+.news-archive {
+  position: relative;
+  @include makeGrid3(1rem);
+  @include spacing(2rem, 2rem);
+
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    margin: 0;
+    color: $font-color-darker;
+  }
+}
+

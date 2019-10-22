@@ -1,0 +1,7 @@
+@import '../../scss/init';
+
+.reservation-page {
+  @extend %withSidebar;
+  position: relative;
+  @include spacing(1rem, 2rem);
+}

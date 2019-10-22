@@ -1,0 +1,23 @@
+@import '../../scss/init';
+
+.footer {
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+
+  &__to-top {
+    background: #f4f4f4;
+  }
+
+  &__bar {
+    background: #252525;
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+  }
+}

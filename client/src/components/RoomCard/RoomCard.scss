@@ -1,0 +1,153 @@
+@import '../../scss/init';
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+  background: $color-white;
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+  padding: 1.5rem 1.5rem 0.5rem;
+
+  &__inner-closed {
+    display: flex;
+  }
+  &__inner-open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__thumbnail {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 3px;
+    
+    img {
+      display: inline-block;
+      width: 100%;
+      object-fit: cover;
+      border: 1px inset rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__toggle {
+    padding: 1rem 0.5rem 0rem;
+    align-self: center;
+    justify-self: center;
+    color: $font-color-darker;
+    cursor: pointer;
+  }
+  
+  .closed {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 1rem;
+  }
+
+  .open {
+    flex: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title-closed,
+  &__title {
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+    color: $font-color-darker;
+    margin-top: 0;
+  }
+
+  &__size-closed,
+  &__size {
+    font-size: 0.9rem;
+    font-weight: $font-weight-bold;
+    color: $font-color-darker;
+  }
+
+  &__description-closed,
+  &__description {
+    font-size: 0.8rem;
+    font-weight: $font-weight-normal;
+    color: $font-color-darker;
+  }
+
+  &__price-closed,
+  &__price {
+    font-size: 1.2rem;
+    font-weight: $font-weight-bold;
+    color: $font-color-darker;
+    margin: 0;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  &__facilities__list {
+    @include makeGrid3();
+    padding-bottom: 1.5rem;
+
+    li {
+      display: flex;
+      font-size: 0.7rem;
+    }
+  }
+
+  .book-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    .book-card {
+      background: $color-grey;
+      padding: 0.5rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      
+      &__title {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        font-weight: $font-weight-bold;
+        color: $font-color-darker;
+        font-size: 0.7rem;
+      }
+      
+      &__flex {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        font-size: 0.6rem;
+        padding: 0.25rem 0;
+      }
+
+      &__price {
+        font-weight: $font-weight-normal;
+        color: $font-color-darker;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.2rem 0.3rem 0;
+        
+        &--valuta {
+          font-size: 1rem;
+          font-weight: $font-weight-bold;
+        }
+      }
+      
+      &__button {
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        color: white;
+        padding: 0.25rem 1rem;
+        font-size: 0.8rem;
+        font-family: $font;
+        font-weight: $font-weight-bold;
+        letter-spacing: 2px;
+        background: $color-red;
+        box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}

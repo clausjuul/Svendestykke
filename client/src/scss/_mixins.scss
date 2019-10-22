@@ -1,0 +1,133 @@
+@import './vendor/include-media';
+
+@mixin spacing ($top:0, $bottom:0) {
+  padding: $top $smallSpacing $bottom;
+
+  @include media('>=tablet') {
+    padding: $top $spacing $bottom;
+  }
+
+  @include media('>desktop') {
+      padding: $top $largeSpacing $bottom;
+  }
+}
+
+@mixin makeGrid3($gap-column: 1rem, $gap-row: 1rem) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $gap-column $gap-row;
+
+  @include media('>=tablet') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include media('>=desktop') {
+    grid-gap: calc(#{$gap-column} * 2) calc(#{$gap-row} * 2);
+  }
+}
+
+@mixin makeGrid4($gap-column: 1rem, $gap-row: 1rem) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $gap-column $gap-row;
+  
+  @include media('>=tablet') {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @include media('>=desktop') {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: calc(#{$gap-column} * 2) calc(#{$gap-row} * 2);
+  }
+}
+
+%withSidebar {
+  display: grid;
+  grid-template-columns: 2.7fr 1fr;
+
+  .content__title {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+    color: $font-color-darker;
+    font-weight: $font-weight-light;
+    margin-top: 0;
+  }
+  
+  .content__sub-title {
+    grid-column: 1 / -1;
+    font-size: 1rem;
+    color: $font-color-dark;
+    font-weight: $font-weight-normal;
+    margin-top: 0;
+  }
+
+  .content__paragraph {
+    grid-column: 1 / -1;
+    font-size: 0.7rem;
+    color: $font-color-dark;
+    font-weight: $font-weight-normal;
+    margin-top: 0;
+  }
+
+  .sidebar {
+    border-left: 1px solid $color-grey;
+    padding-left: 1rem;
+    margin-left: 1rem;
+
+    &__title {
+      font-size: 0.8;
+      font-weight: $font-weight-normal;
+      color: $font-color-darker;
+      margin-top: 0;
+    }
+
+    &__list {
+      font-size: 0.7rem;
+      color: $font-color-darker;
+
+      li {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}
+
+// Brand colors.
+$color-brand: (gt: #5979C5,
+  mg: #901F93,
+  dm: #79A92C,
+  wu: #DC383D);
+
+@function color-brand($key) {
+  @return map-get($color-brand, $key);
+}
+
+$color-light: (1: #E0E0E0,
+  2: #f1f1f1,
+  3: #FAFAFA,
+  4: #FFFFFF);
+
+@function color-light($key: 3) {
+  @return map-get($color-light, $key);
+}
+
+// Dark colors.
+$color-dark: (1: #000000,
+  2: #212121,
+  3: #303030,
+  4: #424242);
+
+@function color-dark($key: 3) {
+  @return map-get($color-dark, $key);
+}
+
+
+// Color theme.
+$color-theme: (1: #191A1D,
+  2: #202125,
+  3: #32333B,
+  4: #0EBEFF);
+
+@function color-theme($key) {
+  @return map-get($color-theme, $key);
+}
