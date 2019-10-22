@@ -1,5 +1,4 @@
-# svendestykke
-Mit svendestykke 'Hotel Overlook'.
+# Mit svendestykke 'Hotel Overlook'.
 
 ### Kort beskrevet:
 - Vi fik design udleveret som psd/pdf, og data'en skulle fetches fra en api.
